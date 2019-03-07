@@ -1,0 +1,16 @@
+{
+	"name": "VanArsStor",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "StorConn",
+			"type": "LinkedServiceReference"
+		},
+		"type": "AzureBlobFSFile",
+		"typeProperties": {
+			"format": {
+				"type": "ParquetFormat"
+			},
+			"folderPath": "vanars"
+		}
+	}
+}

@@ -1,0 +1,19 @@
+{
+	"name": "DestinationDataset_f9d",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "StorConn",
+			"type": "LinkedServiceReference"
+		},
+		"type": "AzureBlobFSFile",
+		"typeProperties": {
+			"format": {
+				"type": "JsonFormat",
+				"filePattern": "arrayOfObjects"
+			},
+			"fileName": "movies",
+			"folderPath": "southridgemovies"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

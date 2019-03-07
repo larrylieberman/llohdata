@@ -1,0 +1,27 @@
+{
+	"name": "DestinationDataset_yf5",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "StorConn",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"cw_fileName": {
+				"type": "String"
+			}
+		},
+		"type": "AzureBlobFSFile",
+		"typeProperties": {
+			"format": {
+				"type": "JsonFormat",
+				"filePattern": "setOfObjects"
+			},
+			"fileName": {
+				"value": "@dataset().cw_fileName",
+				"type": "Expression"
+			},
+			"folderPath": "southridgestream"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

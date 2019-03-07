@@ -1,0 +1,14 @@
+{
+	"name": "SourceDataset_f9d",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "MovieConn",
+			"type": "LinkedServiceReference"
+		},
+		"type": "DocumentDbCollection",
+		"typeProperties": {
+			"collectionName": "movies"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

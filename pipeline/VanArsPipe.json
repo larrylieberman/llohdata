@@ -16,11 +16,20 @@
 					"source": {
 						"type": "SqlSource"
 					},
+					"sink": {
+						"type": "AzureBlobFSSink"
+					},
 					"enableStaging": false
 				},
 				"inputs": [
 					{
 						"referenceName": "VanArsSqlServerDataset",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "VanArsStor",
 						"type": "DatasetReference"
 					}
 				]

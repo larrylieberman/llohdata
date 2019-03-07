@@ -1,0 +1,48 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "llohdf03026"
+		},
+		"MovieConn_connectionString": {
+			"value": ""
+		},
+		"SqlSalesConn_connectionString": {
+			"value": ""
+		},
+		"StorConn_accountKey": {
+			"value": ""
+		},
+		"StreamConn_connectionString": {
+			"value": ""
+		},
+		"SqlServer1_connectionString": {
+			"value": ""
+		},
+		"DestinationDataset_4ts_properties_typeProperties_fileName": {
+			"value": "@dataset().cw_fileName"
+		},
+		"DestinationDataset_4ts_properties_typeProperties_folderPath": {
+			"value": "southridgesales"
+		},
+		"DestinationDataset_f9d_properties_typeProperties_fileName": {
+			"value": "movies"
+		},
+		"DestinationDataset_f9d_properties_typeProperties_folderPath": {
+			"value": "southridgemovies"
+		},
+		"DestinationDataset_yf5_properties_typeProperties_fileName": {
+			"value": "@dataset().cw_fileName"
+		},
+		"DestinationDataset_yf5_properties_typeProperties_folderPath": {
+			"value": "southridgestream"
+		},
+		"StorConn_properties_typeProperties_url": {
+			"value": "https://llohstor.dfs.core.windows.net"
+		},
+		"VanArsStor_properties_typeProperties_folderPath": {
+			"value": "vanars"
+		}
+	}
+}

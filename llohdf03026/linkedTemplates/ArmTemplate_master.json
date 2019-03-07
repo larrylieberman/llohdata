@@ -1,0 +1,133 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory Name",
+			"defaultValue": "llohdf03026"
+		},
+		"MovieConn_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'MovieConn'"
+		},
+		"SqlSalesConn_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'SqlSalesConn'"
+		},
+		"StorConn_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'StorConn'"
+		},
+		"StreamConn_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'StreamConn'"
+		},
+		"SqlServer1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'SqlServer1'"
+		},
+		"DestinationDataset_4ts_properties_typeProperties_fileName": {
+			"type": "string",
+			"defaultValue": "@dataset().cw_fileName"
+		},
+		"DestinationDataset_4ts_properties_typeProperties_folderPath": {
+			"type": "string",
+			"defaultValue": "southridgesales"
+		},
+		"DestinationDataset_f9d_properties_typeProperties_fileName": {
+			"type": "string",
+			"defaultValue": "movies"
+		},
+		"DestinationDataset_f9d_properties_typeProperties_folderPath": {
+			"type": "string",
+			"defaultValue": "southridgemovies"
+		},
+		"DestinationDataset_yf5_properties_typeProperties_fileName": {
+			"type": "string",
+			"defaultValue": "@dataset().cw_fileName"
+		},
+		"DestinationDataset_yf5_properties_typeProperties_folderPath": {
+			"type": "string",
+			"defaultValue": "southridgestream"
+		},
+		"StorConn_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://llohstor.dfs.core.windows.net"
+		},
+		"VanArsStor_properties_typeProperties_folderPath": {
+			"type": "string",
+			"defaultValue": "vanars"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas Token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"MovieConn_connectionString": {
+						"value": "[parameters('MovieConn_connectionString')]"
+					},
+					"SqlSalesConn_connectionString": {
+						"value": "[parameters('SqlSalesConn_connectionString')]"
+					},
+					"StorConn_accountKey": {
+						"value": "[parameters('StorConn_accountKey')]"
+					},
+					"StreamConn_connectionString": {
+						"value": "[parameters('StreamConn_connectionString')]"
+					},
+					"SqlServer1_connectionString": {
+						"value": "[parameters('SqlServer1_connectionString')]"
+					},
+					"StorConn_properties_typeProperties_url": {
+						"value": "[parameters('StorConn_properties_typeProperties_url')]"
+					},
+					"DestinationDataset_4ts_properties_typeProperties_fileName": {
+						"value": "[parameters('DestinationDataset_4ts_properties_typeProperties_fileName')]"
+					},
+					"DestinationDataset_4ts_properties_typeProperties_folderPath": {
+						"value": "[parameters('DestinationDataset_4ts_properties_typeProperties_folderPath')]"
+					},
+					"DestinationDataset_f9d_properties_typeProperties_fileName": {
+						"value": "[parameters('DestinationDataset_f9d_properties_typeProperties_fileName')]"
+					},
+					"DestinationDataset_f9d_properties_typeProperties_folderPath": {
+						"value": "[parameters('DestinationDataset_f9d_properties_typeProperties_folderPath')]"
+					},
+					"DestinationDataset_yf5_properties_typeProperties_fileName": {
+						"value": "[parameters('DestinationDataset_yf5_properties_typeProperties_fileName')]"
+					},
+					"DestinationDataset_yf5_properties_typeProperties_folderPath": {
+						"value": "[parameters('DestinationDataset_yf5_properties_typeProperties_folderPath')]"
+					},
+					"VanArsStor_properties_typeProperties_folderPath": {
+						"value": "[parameters('VanArsStor_properties_typeProperties_folderPath')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
